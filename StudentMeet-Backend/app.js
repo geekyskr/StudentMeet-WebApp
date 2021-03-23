@@ -1,19 +1,7 @@
 const express = require('express');
 const mysql = require('mysql');
+const bodyParser = require('body-parser');
+const mysqlConnection = require('./connection');
+
 const app = express();
-
-
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'sunil',
-  password: 'MysqL@3007',
-  database: 'StudentMeetDB',
-  multipleStatements: true
-})
-connection.connect((err)=>{
-  if(err){
-    console.error("error occur while connecting "+err);
-    return;
-  }
-  console.log("connection established");
-});
+app.use(bodyParser.json());
