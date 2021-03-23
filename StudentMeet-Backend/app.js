@@ -2,11 +2,13 @@ const express = require('express');
 const mysql = require('mysql');
 const app = express();
 
+
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'sunil',
   password: 'MysqL@3007',
-  database: 'StudentMeetDB'
+  database: 'StudentMeetDB',
+  multipleStatements: true
 })
 connection.connect((err)=>{
   if(err){
