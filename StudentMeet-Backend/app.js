@@ -5,9 +5,11 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mysqlConnection = require('./connection');
 
-const homeRoutes = require('./api/routes/home');
 const loginRoutes = require('./api/routes/home/login');
 const registerRoutes = require('./api/routes/home/register');
+const logoutRoutes = require('./api/routes/home/logout');
+const homeRoutes = require('./api/routes/home');
+
 
 const app = express();
 
@@ -16,9 +18,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use('/', homeRoutes);
 app.use('/login', loginRoutes);
 app.use('/register', registerRoutes);
+app.use('/logout', logoutRoutes);
+app.use('/', homeRoutes);
+
+
 
 
 app.use((req, res, next)=>{
