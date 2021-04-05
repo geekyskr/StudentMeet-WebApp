@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const mysqlConnection = require('../../connection');
+
 
 router.get('/', (req, res, next)=>{
   res.send("Home Page get");
@@ -16,5 +18,7 @@ router.get('/:universityId/feed', (req, res, next)=>{
 router.get('/:userName', (req, res, next)=>{
   res.send("GET for student having username "+req.params.userName);
 })
+
+
 
 module.exports = router;
