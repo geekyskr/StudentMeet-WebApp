@@ -3,7 +3,7 @@ const router = express.Router();
 const mysqlConnection = require('../../../connection');
 
 
-
+// get request on home/register
 router.get('/', (req, res, next)=>{
 
   const registerPageInformation = {}
@@ -45,8 +45,11 @@ router.get('/', (req, res, next)=>{
 
 })
 
+
+// post request on home/register
 router.post('/', (req, res, next)=>{
-  res.send("Register Page post");
+
+  res.send(req.body);
 })
 
 
