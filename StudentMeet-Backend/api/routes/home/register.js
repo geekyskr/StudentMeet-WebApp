@@ -48,8 +48,7 @@ router.get('/', (req, res, next)=>{
 
 // post request on home/register
 router.post('/', (req, res, next)=>{
-
-  res.send(req.body);
+  res.send("post request on register.");
 })
 
 
