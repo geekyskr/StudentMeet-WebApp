@@ -9,13 +9,13 @@ router.get('/', (req, res, next)=>{
 
 
 // get request on home/university
-router.get('/:universityId', (req, res, next)=>{
+router.get('/:universityid', (req, res, next)=>{
   const universityPageInformation = {}
 
   function UniversityFunc(){
     return new Promise((resolve, reject)=>{
-      const university = req.params.universityId
-      const UniversityNameQuery = "select * from University where UniversityId = ?;"
+      const university = req.params.universityid
+      const UniversityNameQuery = "select * from university where Universityid = ?;"
       mysqlConnection.query(UniversityNameQuery, [university], (err, result, fields)=>{
          if(!err)resolve(result)
       })
@@ -31,13 +31,13 @@ router.get('/:universityId', (req, res, next)=>{
 })
 
 // get request on home/university/feed
-router.get('/:universityId/feed', (req, res, next)=>{
+router.get('/:universityid/feed', (req, res, next)=>{
   const postPageInformation = {}
 
   function PostFunc(){
     return new Promise((resolve, reject)=>{
-      const university = req.params.universityId
-      const postQuery = "select * from Posts where userName in(select UserName from Students where University = ?);"
+      const university = req.params.universityid
+      const postQuery = "select * from posts where postcreator in(select username from students where universityid = ?);"
       mysqlConnection.query(postQuery, [university], (err, result, fields)=>{
          if(!err)resolve(result)
       })
@@ -51,13 +51,13 @@ router.get('/:universityId/feed', (req, res, next)=>{
 })
 
 // get request on home/in/user
-router.get('/in/:userName', (req, res, next)=>{
+router.get('/in/:username', (req, res, next)=>{
   const userPageInformation = {}
 
   function UserFunc(){
     return new Promise((resolve, reject)=>{
-      const user = req.params.universityId
-      const userQuery = "select * from Students where UserName = ?;"
+      const user = req.params.username
+      const userQuery = "select * from students where username = ?;"
       mysqlConnection.query(userQuery, [user], (err, result, fields)=>{
          if(!err)resolve(result)
       })

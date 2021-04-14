@@ -10,26 +10,8 @@ router.get('/', (req, res, next)=>{
 
   function UniversityNameFunc(){
     return new Promise((resolve, reject)=>{
-      const UniversityNameQuery = "select UniversityName from University";
+      const UniversityNameQuery = "select universityname from university";
       mysqlConnection.query(UniversityNameQuery, (err, result, fields)=>{
-         if(!err)resolve(result)
-      })
-    })
-  }
-
-  function DegreeNameFunc(){
-    return new Promise((resolve, reject)=>{
-      const DegreeNameQuery = "select DegreeName from Degree";
-      mysqlConnection.query(DegreeNameQuery, (err, result, fields)=>{
-        if(!err)resolve(result)
-      })
-    })
-  }
-
-  function BranchNameFunc(){
-    return new Promise((resolve, reject)=>{
-      const BranchNameQuery = "select BranchName from Branch";
-      mysqlConnection.query(BranchNameQuery, (err, result, fields)=>{
          if(!err)resolve(result)
       })
     })
@@ -37,8 +19,6 @@ router.get('/', (req, res, next)=>{
 
   async function main(){
     registerPageInformation['UniversityNames'] = await UniversityNameFunc()
-    registerPageInformation['DegreeNames'] = await DegreeNameFunc()
-    registerPageInformation['BranchNames'] = await BranchNameFunc()
     res.send(registerPageInformation);
   }
   main()
