@@ -33,8 +33,23 @@ router.get('/', (req, res, next)=>{
   const college = req.body.college;
   const number = req.body.number;
   console.log(username+name+email+password+college+number)
+  function isUserExist(){
+    return new Promise((resolve, reject)=>{
+      const UniversityQuery = "select universityname from university where universityname = ?";
+      mysqlConnection.query(UniversityQuery, [college], (err, result, fields)=>{
+        if(!err)resolve(result)
+      })
+    })
+  }
+  function isUniversityExist(){
 
+  }
 
+  async function main(){
+    universityRes = await UniversityNameFunc()
+    res.send(registerPageInformation);
+  }
+  main()
 
 })*/
 
@@ -69,7 +84,7 @@ router.post('/', (req, res, next)=>{
         console.log("we are deep level")
         const cquery = "insert into university(universityname) values(?);"
         mysqlConnection.query(cquery, [college], (err, result, field)=>{
-          console.log(field)
+          console.log(result)
           const dbquery = "insert into students values(?, ?, ?, ?, ?, ?);"
           mysqlConnection.query(dbquery, [email, name, email, number, password, result[0].universityid], (err, result)=>{
             if(err)console.log(err);

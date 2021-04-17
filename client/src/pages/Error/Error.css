@@ -1,0 +1,22 @@
+.Error{
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.Error button{
+  margin: 5px;
+  width: 150px;
+  height: 30px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
