@@ -6,8 +6,6 @@ const mysqlConnection = require('../../../connection');
 // get request on home/register
 router.get('/', (req, res, next)=>{
 
-  const registerPageInformation = {}
-
   function UniversityNameFunc(){
     return new Promise((resolve, reject)=>{
       const UniversityNameQuery = "select universityname from university";
@@ -18,14 +16,14 @@ router.get('/', (req, res, next)=>{
   }
 
   async function main(){
-    registerPageInformation['UniversityNames'] = await UniversityNameFunc()
+    const registerPageInformation = await UniversityNameFunc()
     res.send(registerPageInformation);
   }
   main()
 
 })
 
-/*router.post('/', (req, res, next)=>{
+router.post('/', (req, res, next)=>{
   const username = req.body.email;
   const name = req.body.name;
   const email = req.body.email;
@@ -33,7 +31,17 @@ router.get('/', (req, res, next)=>{
   const college = req.body.college;
   const number = req.body.number;
   console.log(username+name+email+password+college+number)
+
+
   function isUserExist(){
+    return new Promise((resolve, reject)=>{
+      const UniversityQuery = "select username from students where username = ?";
+      mysqlConnection.query(UniversityQuery, [username], (err, result, fields)=>{
+        if(!err)resolve(result)
+      })
+    })
+  }
+  function isUniversityExist(){
     return new Promise((resolve, reject)=>{
       const UniversityQuery = "select universityname from university where universityname = ?";
       mysqlConnection.query(UniversityQuery, [college], (err, result, fields)=>{
@@ -41,20 +49,56 @@ router.get('/', (req, res, next)=>{
       })
     })
   }
-  function isUniversityExist(){
-
+  function insertUniversity(){
+    return new Promise((resolve, reject)=>{
+      const cquery = "insert into university(universityname) values(?);"
+      mysqlConnection.query(cquery, [college], (err, result, fields)=>{
+        if(!err)resolve(result)
+      })
+    })
+  }
+  function insertUser(uniid){
+    return new Promise((resolve, reject)=>{
+      const uquery = "insert into students values(?, ?, ?, ?, ?, ?);"
+      mysqlConnection.query(uquery, [email, name, email, number, password, uniid], (err, result, fields)=>{
+        if(!err)resolve(result)
+      })
+    })
+  }
+  function getUniversityId(){
+    return new Promise((resolve, reject)=>{
+      const squery = "select universityid from university where universityname=?;"
+      mysqlConnection.query(squery, [college], (err, result, fields)=>{
+        if(!err)resolve(result)
+      })
+    })
   }
 
   async function main(){
-    universityRes = await UniversityNameFunc()
-    res.send(registerPageInformation);
+    const userExist = await isUserExist()
+    console.log(userExist)
+    if(userExist.lenght>0){
+      console.log("inside 409")
+      res.sendStatus(409);
+      return
+    }
+    console.log("new user")
+    const universityExist = await isUniversityExist()
+    if(universityExist.length==0){
+      console.log("new university")
+      const newUniversity = await insertUniversity();
+    }
+    const uniid = await getUniversityId()
+    const newUser = await insertUser(uniid)
+    console.log("user created")
+    res.sendStatus(201)
   }
   main()
 
-})*/
+})
 
 // post request on home/register
-router.post('/', (req, res, next)=>{
+/*router.post('/', (req, res, next)=>{
   const username = req.body.email;
   const name = req.body.name;
   const email = req.body.email;
@@ -97,5 +141,5 @@ router.post('/', (req, res, next)=>{
       })
     }
     })
-  })
+  })*/
 module.exports = router;

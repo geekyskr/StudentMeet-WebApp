@@ -10,7 +10,6 @@ router.get('/', (req, res, next)=>{
 
 // get request on home/university
 router.get('/:universityid', (req, res, next)=>{
-  const universityPageInformation = {}
 
   function UniversityFunc(){
     return new Promise((resolve, reject)=>{
@@ -22,7 +21,7 @@ router.get('/:universityid', (req, res, next)=>{
     })
   }
   async function main(){
-    universityPageInformation['UniversityDetails'] = await UniversityFunc()
+    const universityPageInformation = await UniversityFunc()
     res.send(universityPageInformation);
   }
   main()
@@ -32,7 +31,6 @@ router.get('/:universityid', (req, res, next)=>{
 
 // get request on home/university/feed
 router.get('/:universityid/feed', (req, res, next)=>{
-  const postPageInformation = {}
 
   function PostFunc(){
     return new Promise((resolve, reject)=>{
@@ -44,7 +42,7 @@ router.get('/:universityid/feed', (req, res, next)=>{
     })
   }
   async function main(){
-    postPageInformation['PostDetails'] = await PostFunc()
+    const postPageInformation = await PostFunc()
     res.send(postPageInformation);
   }
   main()
@@ -52,7 +50,6 @@ router.get('/:universityid/feed', (req, res, next)=>{
 
 // get request on home/in/user
 router.get('/in/:username', (req, res, next)=>{
-  const userPageInformation = {}
 
   function UserFunc(){
     return new Promise((resolve, reject)=>{
@@ -64,12 +61,11 @@ router.get('/in/:username', (req, res, next)=>{
     })
   }
   async function main(){
-    userPageInformation['UserDetails'] = await UserFunc()
+    const userPageInformation = await UserFunc()
     res.send(userPageInformation);
   }
   main()
 })
-
 
 
 module.exports = router;

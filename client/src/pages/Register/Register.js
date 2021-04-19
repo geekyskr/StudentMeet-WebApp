@@ -20,6 +20,7 @@ function Register(){
   const [number, setNumber] = useState("");
 
   const register = ()=>{
+    check()
     Axios.post('http://localhost:8080/register', {name: name, email:email, password: password,
     college: college, number: number}).then((responce)=>{
       console.log(responce);
@@ -66,7 +67,7 @@ function Register(){
           <input id="cnub" type="text" class="inputbox" placeholder="Contact Number" onChange={(event)=>{
           setNumber(event.target.value);
         }}></input>
-          <button type="submit" onClick={check, register} >Register</button>
+          <button type="submit" onClick={register} >Register</button>
         </div>
       </div>
     )
