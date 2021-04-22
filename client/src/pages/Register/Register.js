@@ -20,7 +20,6 @@ function Register(){
   const [number, setNumber] = useState("");
 
   const register = ()=>{
-    check()
     Axios.post('http://localhost:8080/register', {name: name, email:email, password: password,
     college: college, number: number}).then((responce)=>{
       console.log(responce);
@@ -57,10 +56,10 @@ function Register(){
           <input id="email" type="text" class="inputbox" placeholder="Email-Id" onChange={(event)=>{
           setEmail(event.target.value);
         }}></input>
-          <input id="pass" type="text" class="inputbox" placeholder="Password" onChange={(event)=>{
+          <input id="pass" type="password" class="inputbox" placeholder="Password" onChange={(event)=>{
           setPassword(event.target.value);
         }}></input>
-          <input id="cpass" type="text" class="inputbox" placeholder=" Confirm Password"></input>
+          <input id="cpass" type="password" class="inputbox" placeholder=" Confirm Password"></input>
           <input id="cname" type="text" class="inputbox" placeholder="College Name" onChange={(event)=>{
           setCollege(event.target.value);
         }}></input>

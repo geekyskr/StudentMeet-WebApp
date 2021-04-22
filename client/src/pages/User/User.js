@@ -3,7 +3,7 @@ import './User.css'
 
 function User(props){
   const {username} = props.match.params
-  return <div>{username}</div>
+  return <div>{username} hai</div>
 }
 
 export default User;

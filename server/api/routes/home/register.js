@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mysqlConnection = require('../../../connection');
+const bcrypt = require('bcrypt');
 
 
 // get request on home/register
@@ -23,11 +24,11 @@ router.get('/', (req, res, next)=>{
 
 })
 
-router.post('/', (req, res, next)=>{
+router.post('/', async (req, res, next)=>{
   const username = req.body.email;
   const name = req.body.name;
   const email = req.body.email;
-  const password = req.body.password;
+  const password = await bcrypt.hash(req.body.password, 10) ;
   const college = req.body.college;
   const number = req.body.number;
   console.log(username+name+email+password+college+number)
@@ -84,6 +85,7 @@ router.post('/', (req, res, next)=>{
     }
     console.log("new user")
     const universityExist = await isUniversityExist()
+    console.log(universityExist)
     if(universityExist.length==0){
       console.log("new university")
       const newUniversity = await insertUniversity();

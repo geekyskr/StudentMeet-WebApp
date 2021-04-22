@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mysqlConnection = require('../../../connection');
+const bcrypt = require('bcrypt')
 
 // get request on home/login
 router.get('/', (req, res, next)=>{
@@ -19,7 +20,7 @@ router.post('/', (req, res, next)=>{
       console.log(err);
     }
     if(result.length > 0){
-      if(password == result[0].userpassword){
+      if(bcrypt.compare(password, result[0].userpassword)){
         res.json({loggedIn: true, username:username});
       }
       else res.json({loggedIn: false, message: "wrong password"});
