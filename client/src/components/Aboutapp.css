@@ -1,0 +1,38 @@
+*{
+    margin:0;
+    padding:0
+}
+#unibackground{
+	background-color:rgb(94, 145, 240);
+	height:500px;
+	display: flex;
+	flex-direction: column;
+	color:white;
+	font-size: 70px;
+	background:center/cover no-repeat url('../images/unis.jpg');
+}
+
+#smlogo{
+    
+height: 200px;
+width:200px;
+border-radius:50%;
+
+}
+#smwelcome{
+    text-align: center;
+    font-size: 70px;
+}
+
+#aboutsm{
+    height:400px;
+    display: flex;
+    flex-direction: column;
+    background-color:rgb(203, 190, 216);
+
+
+
+}
+#smheading{
+    text-align:center;
+}
