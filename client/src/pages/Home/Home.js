@@ -1,5 +1,7 @@
 import React, {useEffect} from 'react';
 import './Home.css'
+import Contact from '../../components/Contact'
+import About from '../../components/About'
 
 function Home(){
   useEffect(()=>{
@@ -7,7 +9,11 @@ function Home(){
       localStorage.setItem("loggedIn", false);
     }
   }, [])
-  return <div>Home</div>
+  return(
+  <div>
+    <Contact />
+    <About />
+  </div>)
 }
 
 export default Home;

@@ -1,0 +1,60 @@
+
+*{
+    margin:0px;
+    padding:0px
+}
+.ph{
+    text-align: center;
+}
+
+.divcenter{
+    height:100vh;
+    width:100vw;
+    background-color:rgb(200 220 222)
+}
+
+.formlevele{
+display:block;
+text-align: center;
+margin-top:10px;
+
+}
+
+.form-control{
+    width:340px;
+    /* height:20px; */
+    /* border-top: none;
+    border-left: none;
+    border-right: none; */
+    /* background-color:rgb(200 220 222); */
+    margin-left: 500px;
+}
+
+.tarea{
+    width:350px;
+    height:70px;
+    background-color:rgb(200 220 222);
+    margin-left: 500px;
+}
+
+.select{
+    width:340px;
+    margin-left: 500px;
+    background-color:rgb(200 220 222);
+    display:block;
+	justify-content:center
+	
+}
+option{
+	text-align:center
+}
+
+.bcreate{
+    width:340px;
+    height:30px;
+    margin-left: 500px;
+    background-color: black;
+    border-radius:5px;
+    border:none;
+	cursor:pointer
+}

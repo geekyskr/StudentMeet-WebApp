@@ -59,9 +59,11 @@ router.post('/', async (req, res, next)=>{
     })
   }
   function insertUser(uniid){
+    console.log("inside insert user")
     return new Promise((resolve, reject)=>{
       const uquery = "insert into students values(?, ?, ?, ?, ?, ?);"
       mysqlConnection.query(uquery, [email, name, email, number, password, uniid], (err, result, fields)=>{
+        console.log("inside Promise")
         if(!err)resolve(result)
       })
     })
@@ -77,21 +79,23 @@ router.post('/', async (req, res, next)=>{
 
   async function main(){
     const userExist = await isUserExist()
-    console.log(userExist)
-    if(userExist.lenght>0){
+    const universityExist = await isUniversityExist()
+    console.log(userExist.length+" "+universityExist.length)
+    if(userExist.lenght>0 || universityExist.length==0){
       console.log("inside 409")
       res.sendStatus(409);
       return
     }
-    console.log("new user")
-    const universityExist = await isUniversityExist()
+    console.log("new user and existing university")
+    /*const universityExist = await isUniversityExist()
     console.log(universityExist)
     if(universityExist.length==0){
       console.log("new university")
       const newUniversity = await insertUniversity();
-    }
+    }*/
     const uniid = await getUniversityId()
-    const newUser = await insertUser(uniid)
+    console.log(uniid[0].universityid)
+    const newUser = await insertUser(uniid.universityid)
     console.log("user created")
     res.sendStatus(201)
   }

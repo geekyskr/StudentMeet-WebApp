@@ -17,8 +17,8 @@ function Navbar(){
     <div className = "Navbar">
       <a href="/">Home</a>
       {loggedIn ? (<>
-        <a href="/in/upload">Upload</a>
-        <a href="/profile">Profile</a>
+        <a href="/upload">Upload</a>
+        <a href="/in/profile">Profile</a>
         <a href="/" onClick = {logout}>logout</a>
       </>) : (<>
         <a href="/login">Login</a>
