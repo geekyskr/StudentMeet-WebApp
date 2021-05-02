@@ -2,30 +2,30 @@ import react from 'react';
 import './Contact.css';
 const Contact =()=>{
     return (
-        <div class="nkimg">
-	<div class="nk1">
-		<h2 class="h21">Contact Us</h2>
+        <div class="sm-contact-backgroud">
+	<div class="sm-contact-center">
+		<h2 class="sm-contact-heading">Contact Us</h2>
 		<form>
 		
-		<div class="nk2">
-			<input type="text" id="name" placeholder="Full Name" class="nk">
+		<div class="contact-form-div">
+			<input type="text" id="name" placeholder="Full Name" class="contact-form-input">
 		</input>
 		</div>
-		<div class="nk2">
-			<input type="text" id="email"  class="nk" placeholder="Email-id">
+		<div class="contact-form-div">
+			<input type="text" id="email"  class="contact-form-input" placeholder="Email-id">
 		</input>
 		</div>
-		<div class="nk2">
-			<input type="text" id="name"   class="nk" placeholder="Phone">
+		<div class="contact-form-div">
+			<input type="text" id="name"   class="contact-form-input" placeholder="Phone">
 		</input>
 		</div>
-		<div class="nk2">
-			<textarea rows="4" cols="50" class="mes" placeholder="Your Message"></textarea>
+		<div class="contact-mes-div">
+			<textarea rows="4" cols="50" class="contact-message" placeholder="Your Message"></textarea>
 		</div>
 		<br/>
 
-		  <div>
-					<button type="submit" >SEND</button>
+		  <div className="contact-button-div">
+					<button className="contact-button" type="submit" >SEND</button>
 				</div>
 		</form>
 	</div>
