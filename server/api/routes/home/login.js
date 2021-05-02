@@ -14,13 +14,12 @@ router.post('/', (req, res, next)=>{
   const username = req.body.username;
   const password = req.body.password;
   const dbquery = "select * from students where username = ?";
-  mysqlConnection.query(dbquery, [username], (err, result)=>{
-    console.log(result)
+  mysqlConnection.query(dbquery, [username], async (err, result)=>{
     if(err){
       console.log(err);
     }
     if(result.length > 0){
-      if(bcrypt.compare(password, result[0].userpassword)){
+      if(await bcrypt.compare(password, result[0].userpassword)){
         res.json({loggedIn: true, username:username});
       }
       else res.json({loggedIn: false, message: "wrong password"});

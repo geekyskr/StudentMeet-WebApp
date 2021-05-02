@@ -1,151 +1,74 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const mysqlConnection = require('../../../connection');
-const bcrypt = require('bcrypt');
-
+const mysqlConnection = require("../../../connection");
+const bcrypt = require("bcrypt");
 
 // get request on home/register
-router.get('/', (req, res, next)=>{
-
-  function UniversityNameFunc(){
-    return new Promise((resolve, reject)=>{
+router.get("/", (req, res, next) => {
+  function UniversityNameFunc() {
+    return new Promise((resolve, reject) => {
       const UniversityNameQuery = "select universityname from university";
-      mysqlConnection.query(UniversityNameQuery, (err, result, fields)=>{
-        if(!err)resolve(result)
-      })
-    })
+      mysqlConnection.query(UniversityNameQuery, (err, result, fields) => {
+        if (!err) resolve(result);
+      });
+    });
   }
 
-  async function main(){
-    const registerPageInformation = await UniversityNameFunc()
+  async function main() {
+    const registerPageInformation = await UniversityNameFunc();
     res.send(registerPageInformation);
   }
-  main()
-
-})
-
-router.post('/', async (req, res, next)=>{
-  const username = req.body.email;
-  const name = req.body.name;
-  const email = req.body.email;
-  const password = await bcrypt.hash(req.body.password, 10) ;
-  const college = req.body.college;
-  const number = req.body.number;
-  console.log(username+name+email+password+college+number)
-
-
-  function isUserExist(){
-    return new Promise((resolve, reject)=>{
-      const UniversityQuery = "select username from students where username = ?";
-      mysqlConnection.query(UniversityQuery, [username], (err, result, fields)=>{
-        if(!err)resolve(result)
-      })
-    })
-  }
-  function isUniversityExist(){
-    return new Promise((resolve, reject)=>{
-      const UniversityQuery = "select universityname from university where universityname = ?";
-      mysqlConnection.query(UniversityQuery, [college], (err, result, fields)=>{
-        if(!err)resolve(result)
-      })
-    })
-  }
-  function insertUniversity(){
-    return new Promise((resolve, reject)=>{
-      const cquery = "insert into university(universityname) values(?);"
-      mysqlConnection.query(cquery, [college], (err, result, fields)=>{
-        if(!err)resolve(result)
-      })
-    })
-  }
-  function insertUser(uniid){
-    console.log("inside insert user")
-    return new Promise((resolve, reject)=>{
-      const uquery = "insert into students values(?, ?, ?, ?, ?, ?);"
-      mysqlConnection.query(uquery, [email, name, email, number, password, uniid], (err, result, fields)=>{
-        console.log("inside Promise")
-        if(!err)resolve(result)
-      })
-    })
-  }
-  function getUniversityId(){
-    return new Promise((resolve, reject)=>{
-      const squery = "select universityid from university where universityname=?;"
-      mysqlConnection.query(squery, [college], (err, result, fields)=>{
-        if(!err)resolve(result)
-      })
-    })
-  }
-
-  async function main(){
-    const userExist = await isUserExist()
-    const universityExist = await isUniversityExist()
-    console.log(userExist.length+" "+universityExist.length)
-    if(userExist.lenght>0 || universityExist.length==0){
-      console.log("inside 409")
-      res.sendStatus(409);
-      return
-    }
-    console.log("new user and existing university")
-    /*const universityExist = await isUniversityExist()
-    console.log(universityExist)
-    if(universityExist.length==0){
-      console.log("new university")
-      const newUniversity = await insertUniversity();
-    }*/
-    const uniid = await getUniversityId()
-    console.log(uniid[0].universityid)
-    const newUser = await insertUser(uniid.universityid)
-    console.log("user created")
-    res.sendStatus(201)
-  }
-  main()
-
-})
+  main();
+});
 
 // post request on home/register
-/*router.post('/', (req, res, next)=>{
+router.post("/", async (req, res, next) => {
   const username = req.body.email;
   const name = req.body.name;
   const email = req.body.email;
-  const password = req.body.password;
+  const password = await  bcrypt.hash(req.body.password, 10);
   const college = req.body.college;
   const number = req.body.number;
-  mysqlConnection.query("SELECT username FROM students WHERE username = '"+ username +"'", function(err, usresult, field){
-    console.log(usresult.length)
-    if(usresult.length > 0){
-      res.redirect('/login');
-    }
-    else {
-      //new user logic
-      console.log("we are inside")
-      mysqlConnection.query("SELECT universityid FROM university WHERE universityname = '"+ college +"'", function(err, unresult, field){
-        console.log(unresult.length)
-        if(unresult.lenght > 0){
-          console.log(unresult[0].universityid)
-          const dbquery = "insert into students values(?, ?, ?, ?, ?, ?);"
-          mysqlConnection.query(dbquery, [email, name, email, number, password, unresult[0].universityid], (err, result)=>{
-            if(err)console.log(err);
-            else res.send(result);
-          })
-        }
-      else {
-        //new university logic
-        console.log("we are deep level")
-        const cquery = "insert into university(universityname) values(?);"
-        mysqlConnection.query(cquery, [college], (err, result, field)=>{
-          console.log(result)
-          const dbquery = "insert into students values(?, ?, ?, ?, ?, ?);"
-          mysqlConnection.query(dbquery, [email, name, email, number, password, result[0].universityid], (err, result)=>{
-            if(err)console.log(err);
-            else res.send(result);
-          })
-          if(err)console.log(err);
-        })
+  mysqlConnection.query(
+    "SELECT username FROM students WHERE username = '" + username + "'",
+    function (err, usresult, field) {
+      if (err) console.log(err);
+      if (usresult.length > 0) {
+        res.json({ existingUser: true, existingUniversity: true });
+      } else {
+        mysqlConnection.query(
+          "SELECT universityid FROM university WHERE universityname = '" +
+            college +
+            "'",
+          function (err, unresult, field) {
+            if (err) console.log(err);
+            console.log(unresult.length);
+            if (unresult == 0)
+              res.json({ existingUser: false, existingUniversity: false });
+            else {
+              console.log(unresult[0].universityid);
+              const dbquery = "insert into students values(?, ?, ?, ?, ?, ?);";
+              mysqlConnection.query(
+                dbquery,
+                [
+                  email,
+                  name,
+                  email,
+                  number,
+                  password,
+                  unresult[0].universityid,
+                ],
+                (err, result) => {
+                  if (err) console.log(err);
+                  res.json({ existingUser: false, existingUniversity: true });
+                }
+              );
+            }
+          }
+        );
       }
-
-      })
     }
-    })
-  })*/
+  );
+});
+
 module.exports = router;

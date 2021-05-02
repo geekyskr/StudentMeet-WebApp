@@ -4,25 +4,20 @@ import './Register.css'
 
 function Register(){
 
-  /*const [university, setUniversity] = useState(null)
-  useEffect(()=>{
-    Axios.get(`http://localhost:8080/register`)
-      .then(res => {
-        setUniversity(res.data)
-      })
-  }, [])
-  console.log(university);*/
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [college, setCollege] = useState("");
   const [number, setNumber] = useState("");
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   const register = ()=>{
     Axios.post('http://localhost:8080/register', {name: name, email:email, password: password,
     college: college, number: number}).then((responce)=>{
-      console.log(responce);
+      const message = responce.data;
+      if(message.existingUser == true)setErrorMessage("You are existing user. Please logIn")
+      else if(message.existingUniversity == false)setErrorMessage("Please contact us for college registration")
     })
   }
 
@@ -67,6 +62,7 @@ function Register(){
           setNumber(event.target.value);
         }}></input>
           <button type="submit" onClick={register} >Register</button>
+          <p style = {{color: "red"}}>{errorMessage}</p>
         </div>
       </div>
     )
