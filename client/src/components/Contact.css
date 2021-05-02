@@ -4,14 +4,16 @@
 	font-family: 'Cinzel', serif;
 }
 
-.nkimg{
+.sm-contact-backgroud{
 	/*for 100% height*/
 	height:100vh;
 	/*backgroud color: */
 	background-image: linear-gradient(27deg,#004E95 50%,#013A6D 50%);
 	width:100%;
+	display:flex;
+	flex-wrap: wrap;
 }
-.h21{
+.sm-contact-heading{
 	text-align:center;
 	color:white;
 	text-transform: uppercase;
@@ -21,10 +23,11 @@
 	word-spacing: 10px;
 }
 
-.nk1{
+.sm-contact-center{
 	width:400px;
 	height:500px;
-	position:absolute;
+	position:relative;
+	
 	top:50%;
 	left:50%;
 	/*background-color: red;*/
@@ -32,17 +35,19 @@
 	background-image: linear-gradient(27deg,#013A6D 50%,#004E95 50%)
 }
 
-.nk{
+.contact-form-input{
 	width:calc(100% - 40px);
 	height:30px;
 	display:block;
+	
 	margin-top: 15px;
 	margin-left: 18px;
 	padding:0 10px;
 	box-sizing: border-box;
 	border-radius: 10px;
+	border:none;
 }
-.mes{
+.contact-message{
 	width:calc(100% - 40px);
 	height:100px;
 	display:block;
@@ -53,6 +58,7 @@
 
 	padding: 0px;
 	border-radius: 0px;
+	border:none;
     
 }
 
@@ -62,14 +68,15 @@
 
 }
 
-button{
+.contact-button{
 	width:calc(100% - 40px);
 	height:30px;
-	display:block;
+	/* display:block; */
 	margin-top: 20px;
 	margin-left: 18px;
 	color:white;
 	background-color: #0A84c6;
 	border:none;
 	border-radius: 50px;
+	cursor:pointer;
 }
