@@ -9,6 +9,7 @@ const loginRoutes = require('./api/routes/home/login');
 const registerRoutes = require('./api/routes/home/register');
 const logoutRoutes = require('./api/routes/home/logout');
 const homeRoutes = require('./api/routes/home');
+const contactRoutes = require('./api/routes/home/contact');
 
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(cors());
 app.use('/login', loginRoutes);
 app.use('/register', registerRoutes);
 app.use('/logout', logoutRoutes);
+app.use('/contact', contactRoutes);
 app.use('/', homeRoutes);
 
 

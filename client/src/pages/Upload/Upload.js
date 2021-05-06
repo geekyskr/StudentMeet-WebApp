@@ -25,7 +25,7 @@ function Upload(){
        
        </select><br/><br/>
 
-       <button className="bcreate">
+       <button className="bcreate" style={{color:'blue'}}>
          Create Post
      </button>
 
