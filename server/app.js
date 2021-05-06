@@ -10,6 +10,7 @@ const registerRoutes = require('./api/routes/home/register');
 const logoutRoutes = require('./api/routes/home/logout');
 const homeRoutes = require('./api/routes/home');
 const contactRoutes = require('./api/routes/home/contact');
+const postRoutes = require('./api/routes/home/post');
 
 
 const app = express();
@@ -23,6 +24,7 @@ app.use('/login', loginRoutes);
 app.use('/register', registerRoutes);
 app.use('/logout', logoutRoutes);
 app.use('/contact', contactRoutes);
+app.use('/post', postRoutes);
 app.use('/', homeRoutes);
 
 
