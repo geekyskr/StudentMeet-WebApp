@@ -16,8 +16,8 @@ function Register(){
     Axios.post('http://localhost:8080/register', {name: name, email:email, password: password,
     college: college, number: number}).then((responce)=>{
       const message = responce.data;
-      if(message.existingUser == true)setErrorMessage("You are existing user. Please logIn")
-      else if(message.existingUniversity == false)setErrorMessage("Please contact us for college registration")
+      if(message.existingUser === true)setErrorMessage("You are existing user. Please logIn")
+      else if(message.existingUniversity === false)setErrorMessage("Please contact us for college registration")
     })
   }
 

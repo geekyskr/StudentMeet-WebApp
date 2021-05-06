@@ -1,4 +1,4 @@
-import react, {useState} from 'react';
+import {useState} from 'react';
 import Axios from 'axios';
 import './Contact.css';
 	function Contact(){

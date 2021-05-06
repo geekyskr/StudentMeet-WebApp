@@ -1,6 +1,3 @@
-import react from 'react';
-// import './About.css';
-import React, { Component } from 'react';
 import userPhoto from '../images/userPhoto.jpeg'
 
 
@@ -23,13 +20,10 @@ const About=()=>  {
                          <div className="card-body">
                            <h5 className="card-title" style={{textAlign:'center'}}>{oName.name}</h5>
                            <p className="card-text" style={{textAlign:'center'}}>{oName.email}</p>
-                           <p className="card-text" style={{textAlign:'center'}}>Contact Number</p>
-                           <p className="card-text" style={{textAlign:'center'}}>description........</p>
-                           <a href="#" class="btn btn-primary" style={{textAlign:'center',marginLeft:'80px'}}>View Profile</a>
+                           <a href={'/in/' + oName.email} class="btn btn-primary" style={{textAlign:'center',marginLeft:'80px'}}>view profile</a>
+                           <a href={'mailto:'+oName.email} class="btn btn-primary" style={{textAlign:'center',marginLeft:'80px'}}>Contact Me</a>
                          </div></div>
                       
-
-
                      ))}
                  </div>
         );
