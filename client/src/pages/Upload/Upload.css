@@ -53,7 +53,8 @@ option{
     width:340px;
     height:30px;
     margin-left: 500px;
-    background-color: black;
+    background-color: #0A84c6;
+    color:white;
     border-radius:5px;
     border:none;
 	cursor:pointer

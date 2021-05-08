@@ -5,29 +5,32 @@ import userImg from '../../images/userPhoto.jpeg'
 function User(props){
   return (
     <>
-        <div className="first">
+        <div class="sm-profile-container">
+        <div class="sm-profile-section1">
+            
+            
+            
+            <div  class="sm-profile-center">
+                <h1 id="sm-profile-heading" class="sm-profile">Profile</h1>
+                <div class="sm-profile-img-div">
+                    <img class="sm-profile-img" src={userImg} alt="Profile Image" />
+                </div>
+            <h2 class="sm-profile">UserName</h2>
+            <h3 class="sm-profile">Email</h3>
+            <h3 class="sm-profile">University Name</h3>
+            </div>
+        </div>
+        <div class="sm-profile-section2">
+            <div class="sm-profile-edit">
+                <button type="button" class="sm-p-edit">Edit Profile</button>
+                <button type="button" class="sm-p-delete">Delete Profile</button>
+                
+                </div>
+        </div>
 
-        <div className="second">
-        <img src={userImg} class="rounded-circle" alt="Cinque Terre" width="120" height="150" 
-                      style={{marginLeft:'180px',marginTop:'20px'}} />
+       
         
-        
-        <h1 className="profile">Profile</h1>
-        <h2 className="profile">UserName</h2>
-        <h3 className="profile">Email</h3>
-        <h3 className="profile">Contact Number</h3>
-        <h3 className="profile">University Name</h3>
-        </div>
-        <div className="third">
-        
-        <div className="edit">
-        <button type="button" className="bt1">Edit Profile</button>
-        <button type="button" className="bt2">Delete Profile</button>
-        
-        </div>
-        
-        </div>
-        </div>
+    </div>
         </>
     );
 }

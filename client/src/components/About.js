@@ -10,22 +10,23 @@ const About=()=>  {
             {name:"Manoj Kumar Chaudhary",email:"manojchaudhary52623@gmail.com",img:userPhoto,contact:""}
         ]
         
-        return (
+        return (<>
+            <h1 style={{textAlign:'center'}}>About Us</h1>
             <div className="row">
                      {names.map((oName,i) =>(
                          
-                         <div className="card col-md-4" style={{width:'18rem'}} key={i}>
-                         <img src={oName.img} class="rounded-circle" alt="Cinque Terre" width="120" height="150" 
-                          style={{marginLeft:'100px'}} /> 
+                         <div className="card col-md-4"  key={i}>
+                         <img src={oName.img} class="rounded-circle" alt="Cinque Terre" width="45%" height="45%" 
+                          style={{marginLeft:'30%'}} /> 
                          <div className="card-body">
                            <h5 className="card-title" style={{textAlign:'center'}}>{oName.name}</h5>
                            <p className="card-text" style={{textAlign:'center'}}>{oName.email}</p>
-                           <a href={'/in/' + oName.email} class="btn btn-primary" style={{textAlign:'center',marginLeft:'80px'}}>view profile</a>
-                           <a href={'mailto:'+oName.email} class="btn btn-primary" style={{textAlign:'center',marginLeft:'80px'}}>Contact Me</a>
+                           <a href={'/in/' + oName.email} class="btn btn-primary" style={{textAlign:'center',marginLeft:'35%'}}>view profile</a>
+                           <a href={'mailto:'+oName.email} class="btn btn-primary" style={{textAlign:'center',marginLeft:'35%'}}>Contact Me</a>
                          </div></div>
                       
                      ))}
-                 </div>
+                 </div></>
         );
     
 };
