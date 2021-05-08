@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Axios from 'axios';
 import './Usernav.css';
-const GoTo=()=>(
+function Goto (){
+  
+  return (
     <>
     <div  class="container" >
         <div class="row">
-            <button  id="go-to-university" type="button" class="btn btn-raised btn-primary">Go To University</button>
-            <button id="go-to-group" type="button" class="btn btn-raised btn-primary">Go To Group</button>
+            <a href="/universityid" ><button  id="go-to-university" type="button" class="btn btn-raised btn-primary">Go To University</button></a>
+            <a href="/universityid/group" ><button id="go-to-group" type="button" class="btn btn-raised btn-primary">Go To Group</button></a>
         </div>
     </div>
     </>
+  )
 
-)
-export default GoTo;
+}
+export default Goto;
