@@ -37,7 +37,7 @@ function Login(){
         <input id="pass" type="password" class="inputbox" placeholder="Password" onChange={(event)=>{
         setPassword(event.target.value);
       }}></input>
-        <button type="submit" onClick={login} >Login</button>
+        <button  type="submit" onClick={login} >Login</button>
         <h2 style = {{color: "red"}}>{errorMessage}</h2>
       </div>
     </div>
