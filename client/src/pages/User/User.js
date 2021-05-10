@@ -33,6 +33,7 @@ function User(props) {
             <h3 class="sm-profile">Phone no: {user.phonenumber}</h3>
           </div>
         </div>
+        {/* class="sm-profile-section2" contain edit and delete button */}
         <div class="sm-profile-section2">
           <div class="sm-profile-edit">
             <button type="button" class="sm-p-edit">
