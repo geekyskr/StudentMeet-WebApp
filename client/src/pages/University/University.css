@@ -1,0 +1,61 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.sm-uni-container{
+    display:flex;
+    flex-direction:column;
+}
+.sm-uni-address{
+    font-size:2rem;
+    text-align: center;
+    color:white;
+    background-color: rgba(0,0,0,0.25);
+}
+.sm-university{
+    display:flex;
+    flex-direction: column;
+    min-height:80vh;
+    height:fit-content;
+    width:auto;
+    justify-content: center;
+    background:center/cover no-repeat url("C:\Users\nippu kumar\Documents\StudentMeet-WebApp\client\src\images\im4.jpg");
+    align-items:  center;
+    /* color:#9311a9; */
+    /* color:#30a911; */
+    /* opacity: 0.6; */
+   
+   
+   
+   
+    
+}
+
+
+
+
+
+
+.sm-uni-name{
+    font-size:3rem;
+    text-align:center;
+    color:white;
+    
+    background-color: rgba(0,0,0,0.25);
+    
+    
+}
+.sm-uni-detail-heading{
+    font-size:2rem;
+    text-align: center;
+    color:white;
+    
+}
+.sm-university-detail{
+    background-color:blueviolet;
+    height:fit-content;
+    min-height: 20vh;
+    width:100%;
+    color:white;
+}

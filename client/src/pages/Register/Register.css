@@ -22,4 +22,9 @@
 
 .RegisterForm button:hover{
   cursor: pointer;
+  background-color: #0A84c6;
+}
+.RegisterForm button{
+  background-color: #0A84c6;
+  border-radius: 1rem;
 }
