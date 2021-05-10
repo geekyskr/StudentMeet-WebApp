@@ -6,7 +6,7 @@
     display:grid;
     grid-template-rows: 100vh  ;
     /* grid-template-columns:1fr 1.5fr; */
-	   grid-template-columns: repeat(auto-fit,minmax(300px,1fr));   
+	   grid-template-columns: repeat(auto-fit,minmax(500px,1fr));   
       /* grid-template-columns:1fr 1.5fr;
       grid-auto-columns:auto;
       grid-auto-columns:minmax(300px,1fr); */
@@ -51,11 +51,7 @@
      border-radius:50%;
      
 } 
-/* .sm-profile-img-div{
-    margin-left: 30%;
-     margin-top: 5%;
-     margin-bottom:5%;
-} */
+
 #sm-profile-heading{
     font-size:1.5rem;
 }
