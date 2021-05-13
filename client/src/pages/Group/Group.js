@@ -4,6 +4,7 @@ import './Group.css'
 
 function Group(props){
   const {universityId} = props.match.params
+  
   return (
     <Post title="title" description="description" post="I am post" tag="Entertainment" />
   )

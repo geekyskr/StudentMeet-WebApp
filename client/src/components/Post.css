@@ -1,0 +1,57 @@
+.sm-all-posts{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+     justify-content:center;
+
+}
+
+#sm-single-post{
+     border-radius: 5%;
+     margin-top: 3rem;
+
+}
+.card col-md-1{
+    width: 100%;
+}
+.sm-post-user{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    font: size 1rem;
+}
+
+.sm-post-user >div{
+    margin: 1rem;
+
+}
+.sm-post-user .sm-post-follow{
+    margin-left: auto;
+    color: blue;
+    cursor: pointer;
+}
+
+.sm-post-icon{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+}
+
+.sm-post-icon >div{
+    /* margin: 1rem; */
+    flex:1;
+
+}
+.sm-post-icon #sm-post-like,#sm-post-comment,#sm-post-send,#sm-post-share{
+    cursor: pointer;
+}
+.sm-post-comment{
+    width:100%;
+    border:none;
+    outline: none;
+}
+
+/* h5{
+    text-align:center;
+} */

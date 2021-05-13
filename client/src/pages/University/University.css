@@ -20,16 +20,16 @@
     height:fit-content;
     width:auto;
     justify-content: center;
-    background:center/cover no-repeat url("C:\Users\nippu kumar\Documents\StudentMeet-WebApp\client\src\images\im4.jpg");
+    background:center/cover no-repeat url('../../images/im4.jpg');
     align-items:  center;
     /* color:#9311a9; */
     /* color:#30a911; */
     /* opacity: 0.6; */
-   
-   
-   
-   
-    
+
+
+
+
+
 }
 
 
@@ -41,16 +41,16 @@
     font-size:3rem;
     text-align:center;
     color:white;
-    
+
     background-color: rgba(0,0,0,0.25);
-    
-    
+
+
 }
 .sm-uni-detail-heading{
     font-size:2rem;
     text-align: center;
     color:white;
-    
+
 }
 .sm-university-detail{
     background-color:blueviolet;
