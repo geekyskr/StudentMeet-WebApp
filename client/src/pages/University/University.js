@@ -14,7 +14,6 @@ function University(props){
   useEffect(() => {
       universityFunc();
     }, []);
-  console.log(university)
 
 
 

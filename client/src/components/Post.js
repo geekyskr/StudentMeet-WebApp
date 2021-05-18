@@ -10,7 +10,6 @@ function Post(props){
           <div class="sm-post-user">
             <div><i class="fa fa-user-circle" aria-hidden="true"></i></div>
             <div><h5>Sunil kumar Sharma</h5></div>
-            <div class="sm-post-follow"><h5>+Follow</h5></div>
           </div>
 
           <h3 class="card-title" >{props.title}</h3>
