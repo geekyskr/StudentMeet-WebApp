@@ -1,0 +1,32 @@
+.Editprofile{
+  width: 100%;
+  height: 300px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.EditprofileForm{
+  display: flex;
+  flex-direction: column;
+}
+
+.EditprofileForm input, button, select{
+  margin: 5px;
+  width: 300px;
+  height: 30px;
+  font-size: 20px;
+
+}
+
+.EditprofileForm button:hover{
+  cursor: pointer;
+
+}
+
+.EditprofileForm  button{
+  background-color: #0A84c6;
+  border-radius: 1rem;
+}

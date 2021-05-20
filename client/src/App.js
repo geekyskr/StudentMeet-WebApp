@@ -9,6 +9,7 @@ import Group from './pages/Group/Group.js';
 import User from './pages/User/User.js';
 import University from './pages/University/University.js';
 import Error from './pages/Error/Error.js'
+import Editprofile from './pages/Editprofile/Editprofile.js'
 
 
 import Navbar from './components/Navbar.js'
@@ -25,6 +26,7 @@ function App() {
           <Route path="/login" exact render = {() => <Login />} />
           <Route path="/upload" exact render = {() => <Upload />} />
           <Route path="/in/:username" exact render = {(props) => <User {...props} />} />
+          <Route path="/in/:username/edit" exact render = {(props) => <Editprofile {...props} />} />
           <Route path="/in" component={Error} />
           <Route path="/:universityId" exact render = {(props) => <University {...props} />} />
           <Route path="/:universityId/group" exact render = {(props) => <Group {...props} />} />
