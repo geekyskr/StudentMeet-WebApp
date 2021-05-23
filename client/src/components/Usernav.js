@@ -17,10 +17,10 @@ function Goto (){
 
   return (
     <>
-    <div  class="container" >
-        <div class="row">
-            <a href={"/"+user.universityid} ><button  type="button" class="btn btn-raised btn-primary">Go To University</button></a>
-            <a href={"/"+user.universityid+"/group"} ><button type="button" class="btn btn-raised btn-primary">Go To Group</button></a>
+    <div  class="sm-userav-container" >
+        <div class="sm-usernav-row">
+           <div><a href={"/"+user.universityid} ><button id="sm-usernav-university-btn"  type="button" class="btn btn-raised btn-primary">Go To University</button></a></div>
+            <div><a href={"/"+user.universityid+"/group"} ><button id="sm-usernav-university-btn"  type="button" class="btn btn-raised btn-primary">Go To Group</button></a></div>
         </div>
     </div>
     </>

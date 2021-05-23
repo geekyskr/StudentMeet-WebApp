@@ -1,4 +1,5 @@
 import userPhoto from '../images/userPhoto.jpeg'
+import './About.css';
 
 
 const About=()=>  {
@@ -12,7 +13,7 @@ const About=()=>  {
         
         return (<>
             <h1 style={{textAlign:'center'}}>About Us</h1>
-            <div className="row">
+            <div className="ro">
                      {names.map((oName,i) =>(
                          
                          <div className="card col-md-4"  key={i}>

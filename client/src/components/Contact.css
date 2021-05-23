@@ -9,36 +9,67 @@
 	width:100vw;
 	height:100vh;
 	/*backgroud color: */
-	background-image: linear-gradient(27deg,#004E95 50%,#013A6D 50%);
+	background-color:#013A6D;
 	width:100%;
 	display:flex;
 	flex-wrap: wrap;
+	
 }
 .sm-contact-heading{
 	text-align:center;
 	color:white;
 	text-transform: uppercase;
 	font-size: 2em;
-	margin-top: 50px;
-	margin-bottom: 50px;
+	margin-top: 5%;
+	margin-bottom: 5%;
 	word-spacing: 10px;
 }
 
 .sm-contact-center{
-	width:400px;
-	height:500px;
+	width:40vw;
+	height:90%;
 	position:relative;
 	
 	top:50%;
 	left:50%;
 	/*background-color: red;*/
 	transform:translate(-50%, -50%);
-	background-image: linear-gradient(27deg,#013A6D 50%,#004E95 50%)
+	background-color: #004E95;
+}
+
+@media (max-width:900px) and (min-width:500px) {
+
+	.sm-contact-center{
+		width:60vw;
+		height:95%;
+		position:relative;
+		
+		top:50%;
+		left:50%;
+		transform:translate(-50%, -50%);
+		background-image: #004E95;
+	}
+
+}
+
+@media (max-width:500px) and (min-width:100px) {
+
+	.sm-contact-center{
+		width:90vw;
+		height:95%;
+		position:relative;
+		
+		top:50%;
+		left:50%;
+		transform:translate(-50%, -50%);
+		background-image: #004E95;
+	}
+
 }
 
 .contact-form-input{
-	width:calc(100% - 40px);
-	height:30px;
+	width:calc(100% - 2.5rem);
+	height:2rem;
 	display:block;
 	
 	margin-top: 15px;
@@ -47,10 +78,11 @@
 	box-sizing: border-box;
 	border-radius: 10px;
 	border:none;
+	outline: none;
 }
 .contact-message{
-	width:calc(100% - 40px);
-	height:100px;
+	width:calc(100% - 2.5rem);
+	height:4rem;
 	display:block;
 	margin-top: 20px;
 	margin-left: 18px;
@@ -60,6 +92,7 @@
 	padding: 0px;
 	border-radius: 0px;
 	border:none;
+	outline: none;
     
 }
 

@@ -11,7 +11,13 @@ const Home=()=>{
 
       </div>
       <div id="aboutsm">
-          <h1 id="smheading">About Student Meet</h1>
+          <h1 id="smheading">About StudentMeet</h1>
+          <p>StudentMeet is a web application for university students.It provide interface to the students 
+              where student can collaborate with peers and share the activity.Students can join group according to the University.
+              Students can share ,like,commet the post.It provide great information to the students like any activity happening in university, new course provided by the university and sports events.
+              
+              
+          </p>
 
       </div>
       </>
