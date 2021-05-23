@@ -10,7 +10,7 @@ function Editprofile(props){
   const {username} = props.match.params
 
   const editprofile = ()=>{
-    Axios.post('http://localhost:8080/in/:username/edit', {name: name, number: number})
+    Axios.post('http://localhost:8080/in/:username/edit', {name: name, number: number, username : username})
   }
 
 

@@ -3,6 +3,7 @@ import "./User.css";
 import userImg from "../../images/userPhoto.jpeg";
 import Axios from "axios";
 
+
 function User(props) {
     const {username} = props.match.params
     const [user, setUser] = useState("");
@@ -15,7 +16,17 @@ function User(props) {
     useEffect(() => {
         userFunc();
       }, []);
-    console.log(user)
+
+    const deleteProfile = () => {
+        Axios.delete('http://localhost:8080/in/'+username).then((response) =>{
+        });
+    }
+
+  console.log(user)
+
+  const logout = ()=>{
+    localStorage.clear();
+  }
 
   return (
     <>
@@ -38,9 +49,9 @@ function User(props) {
         <div class="sm-profile-section2">
           <div class="sm-profile-edit">
             <a href={'/in/'+username+'/edit'}><button type="button" class="sm-p-edit">Edit Profile</button></a>
-            <button type="button" class="sm-p-delete">
+            <a href='/' onClick = {logout}><button type="button" class="sm-p-delete" onClick = {deleteProfile}>
               Delete Profile
-            </button>
+            </button></a>
           </div>
         </div>
       }

@@ -67,5 +67,25 @@ router.get('/in/:username', (req, res, next)=>{
   main()
 })
 
+router.post('/in/:username/edit', (req, res, next)=>{
+
+    const name = req.body.name;
+    const number = req.body.number;
+    const user = req.body.username
+    console.log(user);
+    const userQuery = "update students set studentname = ?, phonenumber = ? where username = ?;"
+    mysqlConnection.query(userQuery, [name, number, user], (err, result, fields)=>{
+        if(!err)console.log(result);
+    })
+})
+
+router.delete('/in/:username/', (req, res, next)=>{
+    const user = req.params.username;
+    console.log(user);
+    const userQuery = "delete from  students where username = ?;"
+    mysqlConnection.query(userQuery, [user], (err, result, fields)=>{
+        if(!err)console.log(result);
+    })
+})
 
 module.exports = router;
