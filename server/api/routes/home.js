@@ -86,6 +86,10 @@ router.delete('/in/:username/', (req, res, next)=>{
     mysqlConnection.query(userQuery, [user], (err, result, fields)=>{
         if(!err)console.log(result);
     })
+    const postQuery = "delete from  posts where postcreator = ?;"
+    mysqlConnection.query(postQuery, [user], (err, result, fields)=>{
+        if(!err)console.log(result);
+    })
 })
 
 module.exports = router;
