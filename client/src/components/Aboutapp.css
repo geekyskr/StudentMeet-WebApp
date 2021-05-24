@@ -21,13 +21,15 @@ border-radius:50%;
 }
 #smwelcome{
     text-align: center;
-    font-size: 70px;
+    font-size: 4rem;
 }
 
 #aboutsm{
-    height:400px;
-    display: flex;
-    flex-direction: column;
+    min-height:30vh;
+    height:fit-content;
+    
+    
+    
     background-color:rgb(203, 190, 216);
 
 
