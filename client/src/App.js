@@ -13,6 +13,7 @@ import Editprofile from './pages/Editprofile/Editprofile.js'
 
 
 import Navbar from './components/Navbar.js'
+import Comment from './components/Comment.js'
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/in" component={Error} />
           <Route path="/:universityId" exact render = {(props) => <University {...props} />} />
           <Route path="/:universityId/group" exact render = {(props) => <Group {...props} />} />
+          <Route path="/:universityId/group/:postid/comment" exact render = {() => <Comment />} />
 
           <Route  component={Error} />
         </Switch>

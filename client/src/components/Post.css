@@ -51,7 +51,11 @@
     border:none;
     outline: none;
 }
-
+.smShareIcon{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
 /* h5{
     text-align:center;
 } */

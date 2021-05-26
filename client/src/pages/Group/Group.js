@@ -22,7 +22,7 @@ function Group(props){
     <div>
     {
       Object.entries(group).map(([key, post])=>
-        <Post authour={post.postcreator} title={post.postname} description={post.postdescription} post={post.post} tag={post.tag} />
+        <Post universityId={universityId} postid={post.postid} authour={post.postcreator} title={post.postname} description={post.postdescription} post={post.post} tag={post.tag} />
     )
     }
     </div>
