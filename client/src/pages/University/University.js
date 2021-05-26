@@ -19,6 +19,7 @@ function University(props){
 
   return <div>
     <div class="sm-uni-container" >
+      <a href={'/in/' + university.adminusername} class="btn btn-primary" style={{textAlign:'center'}}>view Admin profile</a>
         <div class="sm-university">
             <h1 class="sm-uni-name">{university.universityname}</h1>
             <h2 class="sm-uni-address">{university.address}</h2>

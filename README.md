@@ -7,7 +7,7 @@ goto client folder and "npm install"
 
 goto server folder and "npm install"
 
-make sure you connected with your local MySQL database. You can find configuration in StudentMeet-WebApp/server/connection.js file. Set according to your local machine.
+make sure you connected with your local MySQL database. You can find configuration in StudentMeet-WebApp/server/connection.js file. Set according to your local machine also you have to create database schema which you can find in the last of this document.
 
 goto client folder and "npm start"
 
@@ -33,7 +33,7 @@ Students can like,  share, comment and report the post.
 
 Every group will be monitored by an admin which is chosen by group members.
 
-Students are able to sort all the posts according to their need like new post, post with particular tag etc. 
+Students are able to sort all the posts according to their need like new post, post with particular tag etc.
 
 
 
@@ -44,7 +44,7 @@ As a student we face lots of problems on meeting with seniors and we often miss 
 
 Project scope
 
-The capstone project is scalable and many functionality can be added on the existing model. Some of them are follow - 
+The capstone project is scalable and many functionality can be added on the existing model. Some of them are follow -
 
 Real time conversation between two students.
 
@@ -77,7 +77,7 @@ Working methodology
 
 Details of the API endpoints
 
-./(get request) - Home Page - 
+./(get request) - Home Page -
 
 If a user is logged in He/She has an option for goto respective group.
 If a user is not logged in He/She has the option for login or register.
@@ -87,7 +87,7 @@ In general this page contains information about the website and contact us detai
 
 Existing users have an option for login into the account after successful login users will be redirected to their group else back to Login Page.
 
-./register(post request) - Register Page - 
+./register(post request) - Register Page -
 
 New users have an option to register into the account after successful register details will be sent to admin and they can allow access.
 If the username is already taken it will stay on the same page with error.
@@ -97,7 +97,7 @@ If Email already exists, the user will be redirected to the Login Page.
 
 If a user logged in He/She can see the details, if not the user will be redirected to the Home Page.
 
-./:UniversityId(get request) - University details - 
+./:UniversityId(get request) - University details -
 
 Everyone can see the university details. Logged in users have the option for goto their group and new users have the option to register.
 
@@ -107,15 +107,14 @@ Only logged in users with the right credential can see the group.Not logged in u
 
 Database schema
 
-Student table - 
+Student table -
 
-Username (Primary key), Name, Email, Phone number, Password, UniverityID(forign key).
+Username (Primary key), Name, Email, Phone number, Password, UniverityID(forign key) : University table(UniversityId).
 
-University table - 
+University table -
 
-UniversityId(Primary key), Name, Address, Details, Admin((forign key)).
+UniversityId(Primary key), Name, Address, Details, Admin(forign key) : Student table(Username).
 
-Post table - 
+Post table -
 
-PostId(Primary key), username(foign key), name, Description, Post, tag.
-
+PostId(Primary key), username(forign key): Student table(Username), name, Description, Post, tag.

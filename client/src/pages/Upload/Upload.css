@@ -7,55 +7,66 @@
     text-align: center;
 }
 
-.divcenter{
+.sm-upload-divcenter{
     height:100vh;
     width:100vw;
-    background-color:rgb(200 220 222)
+    background-color:rgb(200 220 222);
+    display:grid;
+    place-items:center;
 }
 
-.formlevele{
+.sm-formlevele{
 display:block;
 text-align: center;
 margin-top:10px;
+border:none;
+    outline:none;
 
 }
 
-.form-control{
+.sm-form-control{
     width:340px;
+    border:none;
+    outline:none;
     /* height:20px; */
     /* border-top: none;
     border-left: none;
     border-right: none; */
     /* background-color:rgb(200 220 222); */
-    margin-left: 500px;
+
 }
 
-.tarea{
+.sm-tarea{
     width:350px;
     height:70px;
-    background-color:rgb(200 220 222);
-    margin-left: 500px;
+    border:none;
+    outline:none;
+    /* background-color:rgb(200 220 222); */
 }
 
-.select{
+.sm-select{
     width:340px;
-    margin-left: 500px;
-    background-color:rgb(200 220 222);
-    display:block;
-	justify-content:center
-	
+    border:none;
+    outline:none;
+
+    /* background-color:rgb(200 220 222); */
+
+
 }
 option{
-	text-align:center
+	text-align:center;
+    border:none;
+    outline:none;
 }
 
 .bcreate{
     width:340px;
     height:30px;
-    margin-left: 500px;
+    /* margin-left: 500px; */
     background-color: #0A84c6;
     color:white;
     border-radius:5px;
     border:none;
+    outline:none;
 	cursor:pointer
 }

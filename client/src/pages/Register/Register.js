@@ -4,6 +4,7 @@ import './Register.css'
 
 function Register(){
 
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,8 +39,8 @@ function Register(){
 			else if(pass!==cpass)alert("Password and confirm password should be same");
 			else if(cnub.length<=9)alert("Contact Number should be  10 digit");
 			else if(isNaN(cnub))alert("please enter valid Contact Number");
+      else register();
 		}
-
 
     return(
       <div className="Register">
@@ -61,7 +62,7 @@ function Register(){
           <input id="cnub" type="text" class="inputbox" placeholder="Contact Number" onChange={(event)=>{
           setNumber(event.target.value);
         }}></input>
-          <button type="submit" onClick={register} >Register</button>
+          <button type="submit" onClick={check} >Register</button>
           <p style = {{color: "red"}}>{errorMessage}</p>
         </div>
       </div>
