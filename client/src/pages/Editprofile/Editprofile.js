@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './Editprofile.css'
 import Axios from 'axios'
+import {useHistory} from 'react-router-dom';
 
 function Editprofile(props){
 
@@ -8,9 +9,11 @@ function Editprofile(props){
   const [number, setNumber] = useState("");
 
   const {username} = props.match.params
+  const history = useHistory();
 
   const editprofile = ()=>{
     Axios.post('http://localhost:8080/in/:username/edit', {name: name, number: number, username : username})
+    history.push('/');
   }
 
 

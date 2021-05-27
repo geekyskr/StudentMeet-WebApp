@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Axios from 'axios';
 import './Upload.css'
+import {useHistory} from 'react-router-dom';
 
 function Upload(){
 
@@ -8,10 +9,12 @@ function Upload(){
   const [description, setDescription] = useState("");
   const [post, setPost] = useState("");
   const [tag, setTag] = useState("");
+  const history = useHistory();
 
   const upload = ()=>{
     Axios.post('http://localhost:8080/post', {title: title, description:description, post: post,
-    tag: tag, username: localStorage.getItem('username')})
+    tag: tag, username: localStorage.getItem('username')});
+    history.push('/');
   }
 
   return (

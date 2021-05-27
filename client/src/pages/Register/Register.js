@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Axios from 'axios';
 import './Register.css'
+import {useHistory} from 'react-router-dom';
 
 function Register(){
 
@@ -13,12 +14,15 @@ function Register(){
 
   const [errorMessage, setErrorMessage] = useState("");
 
+  const history = useHistory();
+
   const register = ()=>{
     Axios.post('http://localhost:8080/register', {name: name, email:email, password: password,
     college: college, number: number}).then((responce)=>{
       const message = responce.data;
       if(message.existingUser === true)setErrorMessage("You are existing user. Please logIn")
       else if(message.existingUniversity === false)setErrorMessage("Please contact us for college registration")
+      else history.push('/login');
     })
   }
 

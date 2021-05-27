@@ -50,7 +50,7 @@ const Share=()=>{
         <>
 
         {/* facebook share  sunil jo url send karna hai wo url me paste kar do  */}
-        <FacebookShareButton url="http://youtube.com"
+        <FacebookShareButton url="http://localhost:3000"
         quote={"share"}
         hashtag="#React"
         >
@@ -62,7 +62,7 @@ const Share=()=>{
 
         {/* whatsapp share */}
 
-        <WhatsappShareButton url="http://youtube.com"
+        <WhatsappShareButton url="http://localhost:3000"
         quote={"share"}
         hashtag="#React"
         >
@@ -73,7 +73,7 @@ const Share=()=>{
 
         {/* twitter share */}
 
-        <TwitterShareButton url="http://youtube.com"
+        <TwitterShareButton url="http://localhost:3000"
         quote={"share"}
         hashtag="#React"
         >
@@ -84,7 +84,7 @@ const Share=()=>{
 
         {/*telegram share  */}
 
-        <TelegramShareButton url="http://youtube.com"
+        <TelegramShareButton url="http://localhost:3000"
         quote={"share"}
         hashtag="#React"
         >
@@ -95,7 +95,7 @@ const Share=()=>{
 
         {/* Linkdin share */}
 
-        <LinkedinShareButton url="http://youtube.com"
+        <LinkedinShareButton url="http://localhost:3000"
         quote={"share"}
         hashtag="#React"
         >
@@ -106,7 +106,7 @@ const Share=()=>{
 
       {/* Email share */}
 
-      <EmailShareButton url="http://youtube.com"
+      <EmailShareButton url="http://localhost:3000"
         quote={"share"}
         hashtag="#React"
         >
